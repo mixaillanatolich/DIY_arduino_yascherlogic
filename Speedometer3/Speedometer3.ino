@@ -20,7 +20,7 @@ Metering meterings[10];
 FullData fullData;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   //serial.begin(9600);
   //serial.begin(115200);
 serial.begin(115200, SWSERIAL_8N1,
@@ -69,8 +69,10 @@ void loop() {
     fullData.numSV = ubxMessage.navPvt.numSV;
   //  Serial.println(ubxMessage.navPvt.gSpeed);
     fullData.gSpeedKm = ubxMessage.navPvt.gSpeed * 0.0036;
-    Serial.print("speed: ");
-    Serial.println(fullData.gSpeedKm);
+    char logEv[64]; 
+    sprintf(logEv, "T: %02d:%02d:%02d:%d S: %d", ubxMessage.navPvt.hour, ubxMessage.navPvt.minute, ubxMessage.navPvt.second, ubxMessage.navPvt.nano, fullData.gSpeedKm);
+    //Serial.print("speed: ");
+    Serial.println(logEv);
     sprintf(fullData.gpsTime, "%02d:%02d:%02d", ubxMessage.navPvt.hour, ubxMessage.navPvt.minute, ubxMessage.navPvt.second);
     latitude = (float)(ubxMessage.navPvt.lat / 10000000.0f);
     longitude = (float)(ubxMessage.navPvt.lon / 10000000.0f);
