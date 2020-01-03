@@ -1,7 +1,8 @@
 #ifndef LCD_H
 #define LCD_H
 
-#include <SH1106.h> // 1.3 OLED (SSD1306.h for 0.96 OLED)
+//#include <SH1106.h> // 1.3 OLED (SSD1306.h for 0.96 OLED)
+#include <SSD1306.h>
 #include "font.h"
 #include "httpserver.h"
 
@@ -29,7 +30,7 @@ struct DataAcc {
 
 class LCD {
   private:
-    SH1106 *display; 
+    SSD1306 *display; 
     char buf30[5], buf60[5], buf100[5];
   public:
     bool isset;

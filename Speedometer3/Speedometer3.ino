@@ -69,10 +69,10 @@ void loop() {
     fullData.numSV = ubxMessage.navPvt.numSV;
   //  Serial.println(ubxMessage.navPvt.gSpeed);
     fullData.gSpeedKm = ubxMessage.navPvt.gSpeed * 0.0036;
-    char logEv[64]; 
-    sprintf(logEv, "T: %02d:%02d:%02d:%d S: %d", ubxMessage.navPvt.hour, ubxMessage.navPvt.minute, ubxMessage.navPvt.second, ubxMessage.navPvt.nano, fullData.gSpeedKm);
+  //  char logEv[64]; 
+  //  sprintf(logEv, "T: %02d:%02d:%02d:%d S: %d", ubxMessage.navPvt.hour, ubxMessage.navPvt.minute, ubxMessage.navPvt.second, ubxMessage.navPvt.nano, fullData.gSpeedKm);
     //Serial.print("speed: ");
-    Serial.println(logEv);
+//    Serial.println(logEv);
     sprintf(fullData.gpsTime, "%02d:%02d:%02d", ubxMessage.navPvt.hour, ubxMessage.navPvt.minute, ubxMessage.navPvt.second);
     latitude = (float)(ubxMessage.navPvt.lat / 10000000.0f);
     longitude = (float)(ubxMessage.navPvt.lon / 10000000.0f);

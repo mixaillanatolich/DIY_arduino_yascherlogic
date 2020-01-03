@@ -7,7 +7,7 @@ LCD::LCD() {
   uint8_t error = Wire.endTransmission();
   if (error == 0) {
     isset = true;
-    display = new SH1106(0x3c, 4, 5);
+    display = new SSD1306(0x3c, 4, 5);
   } else {
     isset = false;
   }
@@ -18,6 +18,7 @@ void LCD::init() {
     return;
   }
   display->init();
+  display->flipScreenVertically();
   display->setTextAlignment(TEXT_ALIGN_LEFT);
   display->setFont(ArialMT_Plain_10);
 }

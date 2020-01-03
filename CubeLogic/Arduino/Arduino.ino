@@ -57,8 +57,11 @@ void setup() {
   accelgyro.setXAccelOffset(accelOffsetX);
   accelgyro.setYAccelOffset(accelOffsetY);
   accelgyro.setZAccelOffset(accelOffsetZ);
-  Serial.begin(9600);
-  serial.begin(115200);
+  Serial.begin(115200);
+  //serial.begin(115200);
+    serial.begin(115200, SWSERIAL_8N1,
+        D7, D8, false,
+        256, 0);
   delay(500);
   metering = {0.0, 0.0, 0.0, 0.0};
   gpsSetup();

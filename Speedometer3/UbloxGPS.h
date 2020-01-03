@@ -263,7 +263,7 @@ int processGPS() {
         if ( c != checksum[0] ) {
           // Checksum doesn't match, reset to beginning state and try again.
           fpos = 0;
-          Serial.println("p3");
+         // Serial.println("p3");
         }
         
       }

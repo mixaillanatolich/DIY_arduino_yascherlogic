@@ -3,7 +3,8 @@
 
 #include <SoftwareSerial.h>
 
-SoftwareSerial serial(13, 15, false, 256); // Connect the GPS RX/TX to Wemos pins D7 and D8
+//SoftwareSerial serial(13, 15, false, 256); // Connect the GPS RX/TX to Wemos pins D7 and D8
+SoftwareSerial serial(D7, D8, false);
 //#define serial Serial
 
 const unsigned char UBX_HEADER[]        = { 0xB5, 0x62 };
